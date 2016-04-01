@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="firstApp">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ greeting }} World</title>
+  </head>
+  <body>
+    <p>{{1 + 6}}<p>
+    <br>
+    <p>Say something to the world <input type="text" ng-model="greeting" ng-init="greeting='Hello, '"></p>
+    <p>{{ greeting }} world!</p>
+    
+<!-- show and hide directives -->
+    <div ng-show='3 + 4 == 5'>
+      3 + 4 isn't 5, don't show
+    </div>
+    <div ng-show='3 + 4 == 7'>
+      3 + 4 is 5, do show
+    </div>
+    <div ng-hide='3 + 4 == 5'>
+      3 + 4 isn't 5, don't hide
+    </div>
+    <div ng-hide='3 + 4 == 7'>
+      3 + 4 is 5, do hide
+    </div>
+
+    <h2>Sign up page</h2>
+    <input type="password" ng-model="pass">
+      <p>Your password is {{pass.length}} characters long</p>
+      <div ng-hide='{{pass.length}} >= 6'>Password invalid!</div>
+      <button ng-show='{{pass.length}} >= 6'>Submit</button>
+
+<!-- controllers -->
+    <div ng-controller="MyFirstController">
+      <h1>My name is: {{name}}</h1>
+      <input ng-model="name" type="text" placeholder="what is your name?">
+    </div>
+
+    <div ng-controller="ExercisesController">
+      <h3>Seconds in a century: {{secondsInACentury | number}}</h3>
+      <h2>{{date | date}}</h2>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
